@@ -1,0 +1,4 @@
+hostname: roleti3.mylabserver.com
+message: database
+pkg_httpd: httpd
+state_httpd: latest

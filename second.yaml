@@ -1,0 +1,23 @@
+--- # This is my first yaml script
+- hosts: all
+  remote_user: ansible
+  become: yes
+  become_method: sudo 
+  connection: ssh
+  gather_facts  : yes
+  vars: 
+    username: myuser
+  tasks	: 
+    - name : To install httpd package in all the hosts
+      yum: 
+         name: httpd
+         state: present
+           
+      notify:
+        - startservice
+  
+  handlers: 
+    - name: startservice
+      service: 
+            name: httpd
+            state: restarted

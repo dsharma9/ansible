@@ -1,0 +1,671 @@
+ASSIGNMENT	DURATION	DUE DATE
+Introduction
+Syllabus
+HH:08:09
+Completed
+ Introduction to Ansible
+HH:06:02
+Completed
+ Ansible vs. Other Tools
+HH:08:49
+Completed
+ Introduction to YAML
+HH:05:06
+Completed
+ YAML Examples
+HH:10:41
+Completed
+ Ansible Documentation: Modules
+HH:08:34
+Completed
+Setup and Configuration
+ Test Environment Setup
+HH:11:09
+Completed
+ Download and Installation
+HH:09:38
+Completed
+ Ansible Configuration File
+HH:11:59
+Completed
+ Ansible Python Dependencies
+HH:07:02
+Completed
+ The HOSTS File
+HH:08:06
+Completed
+ Overriding the Default HOSTS File
+HH:06:12
+Completed
+ Overriding the Default System Ansible.Cfg File
+HH:11:08
+Completed
+ Overriding the Default Roles Path
+HH:08:14
+Completed
+ Exercise: Configure Test Environment for Secure Access
+HH:30:HH
+Completed
+ Exercise: Configuring the Ansible Host Environment
+HH:30:HH
+Completed
+Ansible Playbooks
+ Configuring Your 'Ansible' Account
+HH:08:03
+Completed
+ Ansible Command Line
+HH:09:44
+Completed
+ System Facts
+HH:08:34
+Completed
+ System Facts: Common Values for Playbooks
+HH:10:13
+Completed
+ Our First Playbook
+HH:11:36
+Completed
+ Variables: Inclusion Types
+HH:09:45
+Completed
+ Target Section
+HH:10:12
+Completed
+ Variable Section
+HH:11:54
+Completed
+ Task Section
+HH:10:52
+Completed
+ Handler Section
+HH:10:20
+Completed
+ Outlining Your Playbook
+HH:08:05
+Completed
+ Create a Playbook from Our Outline
+HH:16:27
+Completed
+ Optimizing Your Playbook
+HH:12:47
+Completed
+ Taking Our Playbook for a Dry Run
+HH:07:45
+Completed
+ Asychronous Polling
+HH:08:26
+Completed
+ Simple Variable Substitution
+HH:09:05
+Completed
+ Lookups
+HH:11:18
+Completed
+ RunOnce
+HH:08:05
+Completed
+ Local Actions
+HH:08:06
+Completed
+ Loops
+HH:08:49
+Completed
+ Conditionals
+HH:11:39
+Completed
+ Until
+HH:08:41
+Completed
+ Notify
+HH:10:20
+Completed
+ Vault
+HH:10:08
+Completed
+ Prompt - Interactive Playbook
+HH:08:19
+Completed
+ Basic Include Statements
+HH:09:17
+Completed
+ Tags
+HH:12:03
+Completed
+ Basic Error Handling
+HH:08:04
+Completed
+ Includes - Breaking Your Playbook Into Discrete Plays
+HH:18:13
+Completed
+ Starting At Task or Stepping Through All Tasks
+HH:09:44
+Completed
+ Passing Variables Into Playbooks at the Command Line
+HH:08:06
+Completed
+ Using Jinja2 Templates
+HH:10:45
+Completed
+ LocalAction
+HH:08:14
+Completed
+ DelegateTo
+HH:10:04
+Completed
+ Exercise: Ansible Facts
+HH:30:HH
+Completed
+ Exercise: Running Ansible Commands Against Hosts
+HH:30:HH
+Completed
+ Exercise: Querying a Remote System
+HH:30:HH
+Completed
+ Exercise: Create a Simple Playbook
+HH:30:HH
+Completed
+ Exercise: Building a Larger Playbook - Target Section
+HH:30:HH
+Completed
+ Exercise: Building a Larger Playbook - Variable Section
+HH:30:HH
+Completed
+ Exercise: Building a Larger Playbook - Task Section
+HH:30:HH
+Completed
+ Exercise: Playbooks - Loops
+HH:30:HH
+Completed
+ Exercise: Playbooks - Notify
+HH:30:HH
+Completed
+ Exercise: Playbooks - Conditionals
+HH:30:HH
+Completed
+ Exercise: Playbooks - Lookup
+HH:30:HH
+Completed
+ Exercise: Playbooks - Local Action
+HH:30:HH
+Completed
+ Exercise: Playbooks - Run Once
+HH:30:HH
+Completed
+ Exercise: Playbooks - Prompt
+HH:30:HH
+Completed
+ Exercise: Playbooks - Includes
+HH:30:HH
+Completed
+ Exercise: Playbooks - Tags
+HH:30:HH
+Completed
+ Exercise: Playbooks - Until
+HH:30:HH
+Completed
+ Exercise: Playbooks - Ignore Errors
+HH:30:HH
+Completed
+ Exercise: Playbooks - Discrete Plays
+HH:30:HH
+Completed
+ Exercise: Playbooks - Create an Outline
+HH:30:HH
+Completed
+ Exercise: Playbooks - Create Playbook from Outline
+HH:30:HH
+Completed
+ Exercise: Playbooks - Optimize Your Outline Playbook
+HH:30:HH
+Completed
+ Exercise: Take Your Playbook for a DryRun
+HH:30:HH
+Completed
+ Exercise: Jinja2 Template Creation
+HH:30:HH
+Completed
+ Exercise: Playbooks - Using Templates
+HH:30:HH
+Completed
+ Exercise: Playbooks - Start At
+HH:30:HH
+Completed
+ Exercise: Playbooks - Step Into
+HH:30:HH
+Completed
+ Exercise: Playbooks - Variables from Command Line
+HH:30:HH
+Completed
+ Exercise: Playbooks - DelegateTo
+HH:30:HH
+Completed
+Ansible Modules
+ The 'Setup' Module
+HH:10:13
+11/14/2018
+ The 'File' Module
+HH:11:06
+11/15/2018
+ The 'Pause' Module
+HH:11:36
+11/15/2018
+ The 'WaitFor' Module
+HH:08:25
+11/15/2018
+ The 'Yum' Module
+HH:10:40
+11/15/2018
+ The 'Apt' Module
+HH:11:12
+11/16/2018
+ The 'Service' Module
+HH:10:21
+11/16/2018
+ The 'Copy' Module
+HH:12:25
+11/16/2018
+ The 'Command' Module
+HH:08:14
+11/16/2018
+ The 'Cron' Module
+HH:08:19
+11/17/2018
+ The 'Debug' Module
+HH:08:40
+11/17/2018
+ The 'Fetch' Module
+HH:09:10
+11/17/2018
+ The 'User' Module
+HH:08:32
+11/17/2018
+ The 'AT' Module
+HH:08:56
+11/17/2018
+ The 'DNF' Module
+HH:08:47
+11/18/2018
+ The 'Apache2_Module' Module
+HH:08:11
+11/18/2018
+ The 'SetFact' Module
+HH:08:51
+11/18/2018
+ The 'Stat' Module
+HH:11:36
+11/18/2018
+ The 'Script' Module
+HH:12:26
+11/19/2018
+ The 'Shell' Module
+HH:10:28
+11/19/2018
+ The 'SELinux' Module
+HH:09:36
+11/19/2018
+ The 'SEBoolean' Module
+HH:11:38
+11/19/2018
+ The 'Raw' Module
+HH:07:31
+11/20/2018
+ The 'Ping' Module
+HH:07:06
+11/20/2018
+ The 'Unarchive' Module
+HH:08:09
+11/20/2018
+ The 'HTPasswd' Module
+HH:10:22
+11/20/2018
+ The 'GetURL' Module
+HH:07:07
+11/20/2018
+ The 'Group' Module
+HH:07:31
+11/20/2018
+ The 'Mail' Module
+HH:09:15
+11/21/2018
+ The 'Filesystem' Module
+HH:10:15
+11/21/2018
+ The 'Mount' Module
+HH:08:25
+11/21/2018
+ The 'Notify' Module
+HH:10:20
+11/21/2018
+ The 'AptRepo' Module
+HH:08:06
+11/21/2018
+ The 'AptKey' Module
+HH:07:43
+11/22/2018
+ The ' ACL' Module
+HH:08:39
+11/22/2018
+ The 'Git' Module
+HH:08:55
+11/22/2018
+ Creating a Jinja2 Template File
+HH:08:02
+11/22/2018
+ The 'Template' Module
+HH:10:45
+11/22/2018
+ The 'MySQL_DB' Module
+HH:13:51
+11/23/2018
+ The 'MySQL_User' Module
+HH:11:04
+11/23/2018
+ The 'Kernel_Blacklist' Module
+HH:07:10
+11/23/2018
+ Exercise: The Pause Module
+HH:30:HH
+11/24/2018
+ Exercise: The WaitFor Module
+HH:30:HH
+11/25/2018
+ Exercise: The Setup Module
+HH:30:HH
+11/26/2018
+ Exercise: The 'Yum' Module
+HH:30:HH
+11/27/2018
+ Exercise: The 'Apt' Module
+HH:30:HH
+11/28/2018
+ Exercise: The 'Service' Module
+HH:30:HH
+11/29/2018
+ Exercise: The 'Copy' Module
+HH:30:HH
+11/30/2018
+ Exercise: The 'Command' Module
+HH:30:HH
+12/01/2018
+ Exercise: The 'Cron' Module
+HH:30:HH
+12/02/2018
+ Exercise: The 'Debug' Module
+HH:30:HH
+12/03/2018
+ Exercise: The 'User' Module
+HH:30:HH
+12/04/2018
+ Exercise: The 'Fetch' Module
+HH:30:HH
+12/05/2018
+ Exercise: The 'SetFact' Module
+HH:30:HH
+12/06/2018
+ Exercise: The 'Stat' Module
+HH:30:HH
+12/07/2018
+ Exercise: The 'Script' Module
+HH:30:HH
+12/08/2018
+ Exercise: The 'Debug' Module
+HH:30:HH
+12/09/2018
+ Exercise: The 'Fetch' Module
+HH:30:HH
+12/10/2018
+ Exercise: The 'User' Module
+HH:30:HH
+12/11/2018
+ Exercise: The 'AT' Module
+HH:30:HH
+12/12/2018
+ Exercise: The 'DNF' Module
+HH:30:HH
+12/13/2018
+ Exercise: The 'Shell' Module
+HH:30:HH
+12/14/2018
+ Exercise: The 'SELinux' Module
+HH:30:HH
+12/15/2018
+ Exercise: The 'SEBoolean' Module
+HH:30:HH
+12/16/2018
+ Exercise: The 'Raw' Module
+HH:30:HH
+12/17/2018
+ Exercise: The 'Ping' Module
+HH:30:HH
+12/18/2018
+ Exercise: The 'HTPasswd' Module
+HH:30:HH
+12/19/2018
+ Exercise: The 'GetURL' Module
+HH:30:HH
+12/20/2018
+ Exercise: The 'Group' Module
+HH:30:HH
+12/21/2018
+ Exercise: The 'Filesystem' Module
+HH:30:HH
+12/22/2018
+ Exercise: The 'Mount' Module
+HH:30:HH
+12/23/2018
+ Exercise: The 'Mail' Module
+HH:30:HH
+12/24/2018
+ Exercise: The 'Unarchive' Module
+HH:30:HH
+12/25/2018
+ Exercise: The 'Notify' Module
+HH:30:HH
+12/26/2018
+ Exercise: The 'Apt Repo' Module
+HH:30:HH
+12/27/2018
+ Exercise: The 'AptKey' Module
+HH:30:HH
+12/28/2018
+ Exercise: The 'ACL' Module
+HH:30:HH
+12/29/2018
+ Exercise: The 'MySQL_DB' Module
+HH:30:HH
+12/30/2018
+ Exercise: The 'MySQL_User' Module
+HH:30:HH
+12/31/2018
+Roles
+ Roles - The Directory Structure
+HH:10:28
+12/31/2018
+ Role Based Tasks
+HH:11:51
+01/01/2019
+ Task Order - Pre and Post Tasks
+HH:07:35
+01/01/2019
+ Roles - Conditional Execution
+HH:10:59
+01/01/2019
+ Roles - Variable Substitution
+HH:09:24
+01/01/2019
+ Roles - Handlers
+HH:10:59
+01/02/2019
+ Roles - Using Notification
+HH:08:45
+01/02/2019
+ Roles - Configuring Alternate Roles Paths
+HH:07:02
+01/02/2019
+ Roles - Conditional Include Statements
+HH:11:11
+01/02/2019
+ Roles - Waiting For Events
+HH:08:01
+01/02/2019
+ Roles - Executing a Task Until
+HH:09:35
+01/03/2019
+ Roles - Using Tags
+HH:07:32
+01/03/2019
+ Roles - Breaking a Playbook Into a Role
+HH:18:13
+01/03/2019
+ Roles - Passing Variables from Command Line
+HH:09:03
+01/03/2019
+ Roles - Using Jinja2 Templates
+HH:10:45
+01/04/2019
+ Roles - DelegateTo
+HH:11:32
+01/04/2019
+ Roles - LocalAction
+HH:08:24
+01/04/2019
+ Exercise: Roles - Create Directory Structure
+HH:30:HH
+01/05/2019
+ Exercise: Roles - Tasks Within a Role
+HH:30:HH
+01/06/2019
+ Exercise: Roles - Service Tasks
+HH:30:HH
+01/07/2019
+ Exercise: Roles - Conditional Roles
+HH:30:HH
+01/08/2019
+ Exercise: Roles - Using Templates
+HH:30:HH
+01/09/2019
+Ansible Command Line Usage
+ Ansible Command Line - Installing Packages
+HH:08:30
+01/09/2019
+ Ansible Command Line - Services and Hosts
+HH:08:11
+01/09/2019
+ Ansible Command Line - Commands and Shells
+HH:07:34
+01/10/2019
+ Ansible Command Line - Managing Users
+HH:08:53
+01/10/2019
+ Ansible Command Line - Create and Manage Cron Jobs
+HH:09:03
+01/10/2019
+ Ansible Command Line - Running Arbitrary Commands
+HH:07:16
+01/10/2019
+ Ansible Command Line - Output Tree
+HH:07:47
+01/10/2019
+ Exercise: Ansible Command Line - Run Arbitrary Module Commands
+HH:30:HH
+01/11/2019
+ Exercise: Ansible Command Line - Installing Packages
+HH:30:HH
+01/12/2019
+ Exercise: Ansible Command Line - Managing Services
+HH:30:HH
+01/13/2019
+ Exercise: Ansible Command Line - Managing Users
+HH:30:HH
+01/14/2019
+ Exercise: Ansible Command Line - Managing CRON Jobs
+HH:30:HH
+01/15/2019
+ Exercise: Ansible Command Line - Run Arbitrary System Commands
+HH:30:HH
+01/16/2019
+Use Cases
+ Creating a Web Server Deployment - Outline
+HH:14:24
+01/16/2019
+ Creating a Web Server Deployment - Playbook First Pass
+HH:19:22
+01/17/2019
+ Creating a Web Server Deployment - Playbook Optimization
+HH:15:03
+01/17/2019
+ Creating a Web Server Deployment - Breaking Into Role(s)
+HH:16:20
+01/18/2019
+ Creating an NFS Server Deployment - Outline
+HH:10:39
+01/18/2019
+ Creating an NFS Server Deployment - Playbook First Pass
+HH:28:04
+01/19/2019
+ Creating an NFS Server Deployment - Playbook Optimization
+HH:12:28
+01/19/2019
+ Creating an NFS Server Deployment - Breaking Into Role(s)
+HH:21:16
+01/20/2019
+ Creating a Database Server Deployment - Outline
+HH:11:59
+01/20/2019
+ Creating a Database Server Deployment - Playbook First Pass
+HH:23:36
+01/21/2019
+ Creating a Database Server Deployment - Playbook Optimization
+HH:15:34
+01/21/2019
+ Creating a Database Server Deployment - Breaking Into Role(s)
+HH:13:52
+01/22/2019
+ Exercise: Use Case - Create a Web Server Outline
+HH:30:HH
+01/22/2019
+ Exercise: Use Case - Create a DB Server Outline
+HH:30:HH
+01/23/2019
+ Exercise: Use Case - Create an NFS Server Outline
+HH:30:HH
+01/24/2019
+Advanced Topics and Ansible 2.0 Updates
+ Galaxy Introduction and Usage
+HH:11:HH
+01/24/2019
+ Ansible 2.0 - Installation
+HH:11:20
+01/25/2019
+ Ansible 2.0 - Playbooks: User Privilege Escalation Changes
+HH:08:05
+01/25/2019
+ Ansible 2.0 - Modules: The 'Find' Module
+HH:08:47
+01/25/2019
+ Ansible 2.0 - Modules: The 'Package' Module
+HH:09:05
+01/25/2019
+ Ansible 2.0 - Roles: User Privilege Escalation Changes
+HH:10:19
+01/25/2019
+ Ansible 2.0 - Roles: The 'Find' Module
+HH:08:47
+01/26/2019
+ Ansible 2.0 - Roles: The 'Package' Module
+HH:07:36
+01/26/2019
+ Exercise: The 'Find' Module
+HH:30:HH
+01/26/2019
+ Exercise: The 'Package' Module
+HH:30:HH
+01/27/2019
+Conclusion
+ Conclusion and Next Steps
+HH:07:12
+01/27/2019
+ Exercise: DELETE ME
+HH:30:HH
+01/28/2019
+

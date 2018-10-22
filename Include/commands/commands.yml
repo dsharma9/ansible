@@ -1,0 +1,2 @@
+- name: Verifing Httpd service is installed or not
+  raw: yum list installed | grep httpd > /home/ansible/httpd.log

@@ -1,0 +1,23 @@
+--- # Playonce ansible example
+
+- hosts: linuxA
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+
+  tasks: 
+   - name: Getting system date and hostname
+     command: /usr/bin/date  
+     register: datelog
+   - debug: var=datelog
+   - name: getting uptime
+     raw: /usr/bin/uptime >> uptime.log
+   - debug:  msg={{lookup('env','HOSTNAME')}}
+
+
+   - name: Testing the run_once module 
+     raw: /usr/bin/hostname -I   > /home/ansible/ansible_client_IP.txt
+     run_once: true
+
+      

@@ -1,0 +1,14 @@
+---
+- hosts: linuxA
+  user: ansible
+  sudo: yes
+  connection: ssh
+  
+
+  tasks: 
+  - name: Displaing Date and Time
+    raw: /usr/bin/date   >  /tmp/date1.txt
+
+  - name: Displaying time in the end of the scripit
+    raw: /usr/bin/date  >  /tmp/date2.txt
+    

@@ -1,0 +1,6 @@
+- name: Installing httpd web browser
+  yum: pkg=httpd state=latest
+  notify: Restart HTTPD service
+  ignore_errors: yes
+- name: installing telnet
+  yum: pkg=telnet name=latest

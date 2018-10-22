@@ -1,0 +1,4 @@
+- name: Installing HTTPD package
+  yum: name=httpd state=latest
+- name: Installing Lynx package
+  yum: name=lynx state=latest

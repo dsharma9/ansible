@@ -1,0 +1,25 @@
+---  #this playbook is to install package
+
+- hosts: '{{ myhosts }}'
+  remote_user: ansible
+  become: yes
+  become_method: sudo
+  gather_facts: '{{ facts }}'
+  connection: ssh
+
+  vars: 
+    myhosts: local
+    facts: yes
+    pkg: vim
+
+#  vars: 
+#    myhosts: local
+#    facts: yes
+#    pkg: vim
+
+  tasks:
+  - name: This ansible scripting is installing the mentioned command
+    yum:
+      name: '{{ pkg }}'
+      state: latest
+  

@@ -1,0 +1,26 @@
+---   #configuring webserver and database server
+
+- hosts: all
+  user: ansible
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: no
+
+  vars_files: 
+   - conf/webserver.yml
+   - conf/database.yml
+  vars_prompt: 
+   - name: ansible_version
+     prompt: "Ansible Version you are using is " 
+  vars: 
+   playbook_version: 0.01 
+
+  tasks:
+  - name: Installing HTTPD  web browser
+    action: yum name=httpd state=latest
+    async: 200
+    poll: 2
+  - name: Restarting  HTTDP service status
+    action: service name=httpd state=restarted enabled=yes
+

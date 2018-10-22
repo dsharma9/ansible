@@ -1,0 +1,9 @@
+---
+
+- hosts: linuxA
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+
+- vars: 

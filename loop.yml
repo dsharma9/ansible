@@ -1,0 +1,20 @@
+--- # Loops example
+
+- hosts: linuxA
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+
+  tasks: 
+   - name: creting user using loop
+     user: 
+          name: "{{ item }}"
+          state: present 
+          generate_ssh_key: yes
+          ssh_key_bits: 2048
+          ssh_key_file: .ssh/id_rsa
+     with_items: 
+          - user1
+          - user2 
+          - user3 

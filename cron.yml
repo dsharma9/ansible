@@ -1,0 +1,10 @@
+--- # Cron setup
+
+- hosts: linuxA
+  user: ansible
+  connection: ssh
+  gather_facts: no
+
+  tasks: 
+    - name: Adding
+      cron: name="Cron Tasks" job=" sudo  fdisk -l > /home/ansible/hdd.log" 

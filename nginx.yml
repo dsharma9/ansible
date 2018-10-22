@@ -1,0 +1,24 @@
+--- # yaml code to install nginx package
+
+- hosts: all
+  remote_user: ansible
+  become: yes
+  become_method: sudo
+  connection: ssh
+
+  tasks: 
+   - name: Installing  package.
+     yum: 
+       name: httpd
+       state: latest
+     notify: 
+       - Restarting nginx  service. 
+
+  
+  handlers: 
+     - name: Restarting nginx  service. 
+       service: 
+           name: httpd
+           enabled: yes
+           state: restarted
+          

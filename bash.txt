@@ -1,0 +1,9 @@
+--- #testing bash command in yaml format
+
+- hosts: all
+  tasks: 
+  - name: Testing bash comand in yaml code
+    shell: /bin/cal
+ 
+  register: apple
+  debug: var=apple 

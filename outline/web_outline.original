@@ -1,0 +1,29 @@
+---
+- hosts: linuxA
+  user: ansible
+  sudo: yes
+  connection: ssh
+  
+
+  tasks: 
+  - name: Displaing Date and Time
+    raw: /usr/bin/date   >  /tmp/date1.txt
+
+  - name: Installing HTTPD service
+    yum: name=httpd state=latest
+  - name: Starting HTTPD service
+    service: name=httpd state=restarted enabled=yes
+  - name: Verifing HTTPD service is running or not!
+    command: systemctl status httpd
+    register: result
+  - debug: var=result 
+
+  - name: Installing client software lynx and telnet
+    yum: name=lynx state=latest
+    yum: name=telnet state=latest
+  - name: Getting Installed package list
+    raw: yum list installed   >  /tmp/installed_linuxA.log
+
+  - name: Displaying time in the end of the scripit
+    raw: /usr/bin/date  >  /tmp/date2.txt
+    
