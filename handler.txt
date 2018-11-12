@@ -1,0 +1,20 @@
+---   # this program is to explain the function of handler
+
+- hosts: all
+  remote_user: ansible
+  become: yes
+  become_method: sudo
+  connection: ssh
+  tasks: 
+    - name: Installing httpd service 
+      yum:
+        name: httpd
+        state: latest
+      notify: "Restart Httpd service"
+
+  handlers: 
+  - name: Restart Httpd service 
+    service: 
+           name: httpd
+           enabled: yes
+           state: restarted

@@ -1,0 +1,35 @@
+--- # Yaml script for installing packge account to runtime entry
+
+- hosts: all
+  user: ansible
+  sudo: yes
+  gather_facts: no
+  connection: ssh
+
+
+  vars_prompt: 
+  - name: pkg_name
+    prompt: Kindly enter the packge name to install/remove
+  - name: pkg_what
+    prompt: What do you want to do with the package(present/latest/removed/absent)
+  - name: pkg_enabled
+    prompt: Do you want to enabled the package(yes/no)
+  - name: pkg_restarted
+    prompt: What do yo you want?(start/stop/restart)
+
+  tasks: 
+  - name: Installing the entered package 
+    action: yum name={{pkg_name}} state={{pkg_what}}
+    async: 100
+    poll: 5
+
+  - name: Restarting and enabling  installed package service
+    service: name={{pkg_name}} state={{pkg_restarted}} enabled={{pkg_enabled}}
+
+  - name: Verifing HTTPD service is running or not
+    command: systemctl status {{pkg_name}} 
+    register: status 
+  - debug: var=status   
+
+
+

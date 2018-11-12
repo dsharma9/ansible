@@ -1,0 +1,21 @@
+--- #lookup
+
+- hosts: all
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+
+  tasks: 
+   - name: Fetching env variable HOME from the remote server
+     debug: 
+       msg: "{{ lookup('config','BECOME_ALLOW_SAME_USER','COLOR_VERBOSE','ANSIBLE_COW_PATH','ANSIBLE_COW_WHITELIST') }}"
+
+   - name: displaing the hostname
+     debug: 
+       msg: "{{ lookup('env','HOSTNAME') }} is the host name of $hosts"
+
+   - name: getting the hsotname usgin command
+     command: curl ifconfig.co 
+     register: hname
+   - debug: var=hname

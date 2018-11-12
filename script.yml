@@ -1,0 +1,11 @@
+--- # running script in remote server wihtout copuping the script file
+
+- hosts: linuxA
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+
+  tasks: 
+    - name: running script in remote host
+      script: /home/ansible/ansible/playbook/date_script.sh   creates=/home/ansible/date.log

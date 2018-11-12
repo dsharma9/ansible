@@ -1,0 +1,10 @@
+--- # FETCH MODULE
+
+- hosts: linuxA
+  user: ansible
+  sudo: yes
+  connection: ssh
+
+  tasks: 
+    - name: Fetching Client hosts files
+      fetch: src=/etc/hosts  dest=/home/ansible/prefix-{{ ansible_hostname }} 

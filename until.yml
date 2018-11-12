@@ -1,0 +1,19 @@
+--- # until condition
+
+- hosts: linuxA
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+
+  tasks: 
+   - name: installing HTTPD package in Ubuntu server
+     yum: pkg=httpd state=latest
+   - name: Checking HTTP status 
+     shell: systemctl status httpd
+     register: result
+     until: result.stdout.find( "active (running)" ) != -1 
+     retries: 5
+     delay: 5
+   - debug: var=result
+     

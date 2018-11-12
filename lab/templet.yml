@@ -1,0 +1,16 @@
+--- # Jinja2
+
+- hosts: linuxA
+  user: ansible
+  sudo: yes
+  connection: ssh
+  
+  vars: 
+    userName: ansible
+    ansiblePassword: ansible
+    systemInfo: ansible_web_server
+
+  tasks: 
+   - name: pushing the script file to the asible client
+     template: src=sysinfo.ja dest=/tmp/systeminformation 
+ 

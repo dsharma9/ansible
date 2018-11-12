@@ -1,0 +1,24 @@
+--- #this is the first Playbook designed in YMAL code
+
+- host: CentOS
+  remote_user: ansible
+  become: yes
+  become_methode: sudo
+  connection: ssh
+  gather_facts: yes
+  var:
+    username: myuser
+
+  tasks:
+  - name: Installing HTTPD service in CentOS group
+    yum:
+      name: httpd
+      state: latest
+    notify:
+    - startservice
+
+  handlers:
+  - name: startservice
+    service: 
+        name: httpd
+        state: restarted

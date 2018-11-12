@@ -1,0 +1,28 @@
+--- # Installing package according to Linux Family
+
+ - hosts: linuxA
+   user: ansible
+   sudo: yes
+   connection: ssh
+#   gather_facts: no
+
+   vars: 
+     playbook_type: conditional type
+   vars_files: 
+     - conf/database.yml
+     - conf/webserver.yml
+
+   tasks:
+    - name: Installing HTTPD package to Dabina/Utuntu 
+      command: sudo  apt-get  -y install apache2
+      when: ansible_os_family == "Debian"
+    - name: Installing HTTPD package to Redhat family
+      command: yum -y install httpd
+      when: ansible_os_family == 'RedHat'
+    - name: restarting HTTPD service in RedHat family
+      service: name=httpd enabled=yes state=restarted
+      when: ansible_os_family == "RedHat"
+
+
+
+      

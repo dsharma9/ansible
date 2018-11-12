@@ -1,0 +1,14 @@
+--- # Error Handling
+
+- hosts: linuxA
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+
+  tasks: 
+   - name: Running a command that will fail
+     yum: pkg=apple state=latest
+     ignore_errors: yes
+   - name: Installing telnet
+     yum: pkg=telnet state=latest

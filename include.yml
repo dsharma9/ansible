@@ -1,0 +1,10 @@
+--- # Installing package using by including packages file
+ 
+- hosts: linuxA
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  
+  tasks: 
+   - include: plays/packages.txt

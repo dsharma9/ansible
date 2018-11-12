@@ -1,0 +1,3 @@
+hostname: roleit2.mylabserver.com
+group: webserver
+pkg_name: httpd

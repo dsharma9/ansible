@@ -1,0 +1,31 @@
+--- # this is the program for degugging. 
+
+- hosts: '{{ myhosts }}'
+  remote_user: ansible
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: '{{ gather }}'
+
+  vars:
+     myhosts: all
+     gather: no
+     pkg: ngnix
+
+  tasks:
+  -  name: This is the program to show the process of debugging. 
+     yum:
+        name: '{{ pkg }}'
+        state: latest
+#     register: result
+# - debug: var=result
+
+     notify:
+     - Installing and restarting services
+  handlers: 
+    - name: enable service and start and stop it after installation. 
+      service: 
+           name: '{{ pkg }}'
+           enabled: yes
+           state: restarted
+      

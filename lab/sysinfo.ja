@@ -1,0 +1,12 @@
+<hostame>
+	The hostame is {{ ansible_hostname }}
+<\hostname>
+
+<systemuser>
+ 	The ansible user is {{ userName }}
+        The ansible password is {{ ansiblePassword }}
+<\systemuser>
+
+<systeminfo>
+	The systeminformaton is {{ systemInfo }}
+<\systeminfo>

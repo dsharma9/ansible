@@ -1,0 +1,18 @@
+--- # The pause module
+ 
+- hosts: linuxA
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+
+  tasks: 
+   - name: Intalling HTTPD service
+     yum: name=httpd state=latest
+   - name: Pausing the script  
+     pause:
+      seconds: 3
+     prompt: "Make sure HTTPD service is installed or not......"
+   - name: INstalling lynx package
+     yum: name=lynx state=latest
+

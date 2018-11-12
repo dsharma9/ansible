@@ -1,0 +1,21 @@
+--- # checking async command behaviour
+
+- hosts: all
+  user: ansible
+  become: yes
+  become_method: sudo 
+  gather_facts: no
+  connection: ssh
+
+  tasks: 
+  - name: going to sleep for 60 seconds********
+    command: sleep 60
+    async: 65
+    poll: 3
+
+  - name: Installing HTTPD
+    command: yum install -y httpd
+    async: 100
+    poll: 3
+  - name: Again sleeping for 
+    command: wall "This is the end of the script" 

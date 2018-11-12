@@ -1,0 +1,12 @@
+--- # delegating command
+
+- hosts: all 
+  user: ansible
+  sudo: yes
+  connection: ssh
+
+  tasks: 
+    - name: Pinging server
+      raw: ping -c 4 roleti4.mylabserver.com   >  /home/ansible/ping.log
+      delegate_to: 127.0.0.1
+    

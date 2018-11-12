@@ -1,0 +1,20 @@
+--- # creting multiple user
+
+- hosts: linuxA
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: yes
+
+  tasks: 
+    - name: Creating user {{ item }} in the host {{ ansible_hostname }}
+      user: 
+       name: "{{ item }}"
+       state: absent
+       remove: yes
+      with_items:
+         - user1
+         - user2
+         - user3
+         - user4
+

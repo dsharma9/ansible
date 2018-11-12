@@ -1,0 +1,17 @@
+---    # Tempelate  example
+
+- hosts: webserver:ubuntu
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: yes
+
+  vars: 
+    connectionType: TCP/IP
+    userName: Ansible
+    userPassword: AspectSoftware123$
+
+  tasks: 
+    - name: Pushing file to the remte server using Tempelate module
+      template: src=test.conf.j2 dest=/home/ansible/systemInfo.txt owner=ansible group=ansible mode=750 
+

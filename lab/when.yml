@@ -1,0 +1,17 @@
+--- # installing httpd package according to the distribution list:
+
+- hosts: linuxA
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: yes
+
+  tasks: 
+   - name: Installing HTTPD package to RHEL family
+     yum: pkg=httpd state=present
+     when: ansible_os_family == 'RedHat'
+   - name: Installing Apache package to Debian family
+     yum: pkg=apache2 state=present
+     when: ansible_os_family == "Debian"
+
+

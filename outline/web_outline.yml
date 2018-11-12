@@ -1,0 +1,46 @@
+---     # installing variosus packages
+- hosts: linuxA
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  
+
+
+  handlers:
+   - name: Restarting HTTPD
+     service: name=httpd state=started enabled=yes
+
+
+  tasks: 
+  - name: Displaing Date and Time
+    command: /usr/bin/date 
+    register: web_script_start
+  - debug: var=web_script_start
+
+  - name: Installing HTTPD service
+    yum: name=httpd state=latest
+    notify: Restarting HTTPD
+  
+  - name: Verifing HTTPD server has started or not? 
+    command: systemctl status httpd 
+    register: httpd_status
+  - debug: var=httpd_status 
+
+  - name: Installing client software lynx 
+    yum: name=lynx state=latest
+  - name: Installing client software  telnet
+    yum: name=telnet state=latest
+
+  - name: Getting Installed package list
+    command: yum list installed 
+    register: installed_pkg
+  - debug: var=installed_pkg
+
+  - name: Displaying time in the end of the scripit
+    command: /usr/bin/date
+    register: web_script_end
+  - debug: var=web_script_end
+
+
+

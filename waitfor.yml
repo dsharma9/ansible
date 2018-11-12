@@ -1,0 +1,19 @@
+--- # Faitfor module
+
+- hosts: linuxA
+  sudo: yes
+  gather_facts: no
+
+  tasks: 
+   - name: installing tomcat service
+     yum: name=tomcat state=latest
+     
+   - name: Verify port 8080 is running or not
+     wait_for: 
+       port: 8080
+       state: started
+
+   - name: installign lynx packge
+     yum: name=lynx state=latest
+
+
