@@ -1,0 +1,18 @@
+--- # deploping Database service
+- hosts: webserver
+  user: ansible
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+
+  pre_tasks:
+    - name: Catching the starting time
+      raw: /bin/date   > /root/start.txt
+
+  roles:
+   - mariadb.role.server
+
+  post_tasks:
+    - name: Catching the finishing  time
+      raw: /bin/date   > /root/end.txt

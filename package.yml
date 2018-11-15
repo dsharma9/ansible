@@ -1,0 +1,11 @@
+--- # ansible package module
+- hosts: all
+  remote_user: ansible
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+
+  tasks: 
+   - name: Installaing telnet to all the distribution
+     package: name=apache2  state=absent

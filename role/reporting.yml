@@ -1,0 +1,19 @@
+--- # configuring NFS servser
+- hosts: linuxA
+  remote_user: ansible
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+
+  pre_tasks: 
+  - name: Starting of the playbook
+    shell: "/bin/date > /home/ansible/starting_report.txt"
+
+
+  roles: 
+   - reporting
+
+  post_tasks: 
+  - name: ending  of the playbook
+    shell:  "/bin/date > /home/ansible/endinging_report.txt"

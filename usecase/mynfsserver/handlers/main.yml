@@ -1,0 +1,16 @@
+- name: RestartNfsServer
+  service: name="{{item}}" state=restarted enabled=yes
+  with_items: 
+        - nfs-lock
+        - nfs_idmap
+        - nfs_rpcgind
+
+
+- name: RestartNfsClient
+  service: name="{{item}}" state=restarted enabled=yes
+  with_items:
+        - nfs-lock
+        - nfs_idmap
+        - nfs_rpcgind
+  delegate_to: localhost
+

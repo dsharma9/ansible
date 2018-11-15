@@ -1,0 +1,4 @@
+nfs_utils: nfs-utils
+nfs_lock: nfs-lock
+nfs_idmap: nfs-idmap
+nfs_rpcbind: rpcbind

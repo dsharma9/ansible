@@ -1,0 +1,59 @@
+--- # deploping Database service
+- hosts: webserver
+  user: ansible
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+
+  vars: 
+    dbserver_pkg: mariadb-server
+    dbclient_pkg: mariadb
+    dbserver_fqdn: roelti2.mylabserver.com
+    dbinstall_dir: /var/lib
+    dbinstancename: MyDBTest
+    dbdistributioin: RedHat
+    dbvsersion: 5.5.44
+
+  tasks: 
+    - name: Install the mariaDB server and utilities
+      yum: name="{{item}}" state=latest
+      with_items: 
+       - "{{dbserver_pkg}}"
+       - "{{dbclient_pkg}}"
+      notify: 
+       - RestartMariaDBService
+       - MysqlSecureInstallatonPause
+       - RestartMariaDBService
+       - CopingDBFile
+       - CreatDBInstance
+       - ImportingDBInstanceDispayResult
+       - VerifyDBStatus
+       - DisplayNewDB
+       - ShowDatabases
+
+    - name: Setting up a cron job for automatic backup
+      cron: name="DBbackup" job="mysqldump -u root -ppassword123 --databases "{{dbinstancename}}" > dbbkp.sql"   minute=01 hour=00 day=* month=* weekday=*
+
+  handlers: 
+    - name: RestartMariaDBService
+      service: name="{{item}}"  state=restarted
+      with_items:
+       - "{{dbclient_pkg}}"
+    - name: MysqlSecureInstallatonPause
+      pause: prompt="Please execute mysql_sequre_installation command to complete the installation"
+    - name: CreatDBInstance
+      shell: mysqladmin -u root -ppassword123 create MyDBTest  
+    - name: CopingDBFile
+      copy: src=files/mysqlbackup.sql dest=/var/lib/mysqlbackup.sql owner=root group=root mode=755
+    - name: ImportingDBInstanceDispayResult
+      shell: mysql -u root -ppassword123 "{{dbinstancename}}" < /var/lib/mysqlbackup.sql
+      register: db
+    - name: DisplayNewDB 
+      debug: var=db
+    - name: VerifyDBStatus 
+      shell: mysql -u root -ppassword123 -e 'show databases;'
+      register: mydbresult
+    - name: ShowDatabases 
+      debug: var=mydbresult
+       

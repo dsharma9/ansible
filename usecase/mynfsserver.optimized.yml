@@ -1,0 +1,62 @@
+--- # configuring NFS servser
+- hosts: webserver
+  user: ansible
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+
+  vars: 
+   - nfs_utils: nfs-utils
+   - nfs_lock: nfs-lock
+   - nfs_idmap: nfs-idmap
+   - nfs_rpcbind: rpcbind
+
+  tasks: 
+   - name: Installing NFS server and utilities 
+     yum: name="{{item}}" state=latest
+     with_items:
+        - nfs_utils
+     
+   - name: coping nfs.conf.tempelate file to /etc/exports
+     copy: src=/home/ansible/playbook/usecase/files/default.conf.template  dest=/etc/exports
+
+   - name: Creating /var/share dir
+     file: path=/var/share state=directory owner=root group=root mode=755
+
+   - name: Coping data in /var/share dir
+     copy: src=/etc/ansible/hosts  dest=/var/share owner=root group=root mode=644
+
+   - name: restarting nfs server service 
+     service: name="{{item}}" state=restarted
+     with_items:
+        - nfs-lock
+        - nfs_idmap
+        - nfs_rpcgind
+
+   - name: Installing NFS Client and utilities
+     yum: name=nfs-utils state=latest
+     delegate_to: localhost
+
+   - name: restarting nfs server service
+     service: name="{{nfs_utils}}" state=restarted
+     delegate_to: localhost
+     with_items: 
+        - nfs-lock
+        - nfs_idmap
+        - nfs_rpcgind
+     delegate_to: localhost
+
+   - name: mounting "{{ansible_fqdn}}" /var/share to /mnt/nfs in localhost
+     action: mount name=/mnt/nfs  src={{ansible_fqdn}}:/var/share state=mounted opts=rw,sync fstype=nfs
+     register: result
+     delegate_to: 127.0.0.1
+   - name: reloading mount
+     command: "sudo mount -a"
+     become: true
+   - name: Checking Mount output
+     debug: var=result
+
+
+
+       

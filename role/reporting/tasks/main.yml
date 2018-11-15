@@ -1,0 +1,4 @@
+- name: Gathering the Logs file in JSON format
+  find: path="/var/log" recurse=yes size=10k pattern="*.log"
+  register: log
+- debug: var=log

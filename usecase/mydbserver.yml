@@ -1,0 +1,44 @@
+--- # deploping Database service
+- hosts: webserver
+  user: ansible
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+
+  vars: 
+    dbserver_pkg: mariadb-server
+    dbclient_pkg: mariadb
+    dbserver_fqdn: roelti2.mylabserver.com
+    dbinstall_dir: /var/lib
+    dbinstancename: MyDBTest
+    dbdistributioin: RedHat
+    dbvsersion: 5.5.44
+
+  tasks: 
+    - name: Install the mariaDB server and utilities
+      yum: name="{{dbserver_pkg}}" state=latest
+    - name: Install the mariaDB client and utilities
+      yum: name="{{dbclient_pkg}}" state=latest    
+    - name: Start the DB service
+      service: name="{{dbclient_pkg}}"  state=restarted
+    - pause: prompt="Please execute mysql_sequre_installation command to complete the installation"
+    - name: Restart the mysql service
+      service: name="{{dbclient_pkg}}" state=restarted
+    - name: Creating a db instance
+      shell: mysqladmin -u root -ppassword123 create MyDBTest  
+    - name: copy the database moudle to make backup
+      copy: src=files/mysqlbackup.sql dest=/var/lib/mysqlbackup.sql owner=root group=root mode=755
+    - name: Importing database to live DB server
+      shell: mysql -u root -ppassword123 "{{dbinstancename}}" < /var/lib/mysqlbackup.sql
+      register: db
+    - debug: var=db
+    - name: Setting up a cron job for automatic backup
+      cron: name="DBbackup" job="mysqldump -u root -ppassword123 --databases "{{dbinstancename}}" > dbbkp.sql"   minute=01 hour=00 day=* month=* weekday=*
+ 
+    - name: Verify database is running fine
+      shell: mysql -u root -ppassword123 -e 'show databases;'
+      register: mydbresult
+    - debug: var=mydbresult
+
+       

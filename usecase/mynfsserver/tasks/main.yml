@@ -1,0 +1,31 @@
+   - name: Installing NFS server and utilities
+     yum: name="{{item}}" state=latest
+     with_items:
+        - "{{ nfs_utils }}"
+
+   - name: coping nfs.conf.tempelate file to /etc/exports
+     copy: src=/home/ansible/playbook/usecase/files/default.conf.template  dest=/etc/exports
+
+   - name: Creating /var/share dir
+     file: path=/var/share state=directory owner=root group=root mode=755
+
+   - name: Installing NFS Client and utilities
+     yum: name=nfs-utils state=latest
+     delegate_to: localhost
+
+   - name: Coping data in /var/share dir
+     copy: src=/etc/ansible/hosts  dest=/var/share owner=root group=root mode=644
+     notify:
+       - RestartNfsServer
+       - RestartNfsClient
+
+   - name: mounting "{{ansible_fqdn}}" local IP 172.31.21.77 /var/share to /mnt/nfs in localhost
+     action: mount name=/mnt/nfs  src=172.31.21.77:/var/share state=mounted opts=rw,sync fstype=nfs
+
+     register: result
+     delegate_to: 127.0.0.1
+   - name: reloading mount
+     command: "sudo mount -a"
+     become: true
+   - name: Checking Mount output
+     debug: var=result

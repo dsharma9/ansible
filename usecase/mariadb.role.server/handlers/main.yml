@@ -1,0 +1,20 @@
+    - name: RestartMariaDBService
+      service: name="{{item}}"  state=restarted
+      with_items:
+       - "{{dbclient_pkg}}"
+    - name: MysqlSecureInstallatonPause
+      pause: prompt="Please execute mysql_sequre_installation command to complete the installation"
+    - name: CreatDBInstance
+      shell: mysqladmin -u root -ppassword123 create MyDBTest
+    - name: CopingDBFile
+      copy: src=files/mysqlbackup.sql dest=/var/lib/mysqlbackup.sql owner=root group=root mode=755
+    - name: ImportingDBInstanceDispayResult
+      shell: mysql -u root -ppassword123 "{{dbinstancename}}" < /var/lib/mysqlbackup.sql
+      register: db
+    - name: DisplayNewDB
+      debug: var=db
+    - name: VerifyDBStatus
+      shell: mysql -u root -ppassword123 -e 'show databases;'
+      register: mydbresult
+    - name: ShowDatabases
+      debug: var=mydbresult

@@ -1,0 +1,18 @@
+--- # configuring NFS servser
+- hosts: webserver
+  user: ansible
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+
+  pre_tasks: 
+    - name: Nfs server started installing 
+      raw: /bin/date > /home/ansible/nfs.start
+
+  roles: 
+   - mynfsserver
+
+  post_tasks:
+    - name: Nfs server finished installing
+      raw: /bin/date > /home/ansible/nfs.end

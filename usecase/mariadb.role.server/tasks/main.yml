@@ -1,0 +1,15 @@
+    - name: Install the mariaDB server and utilities
+      yum: name="{{item}}" state=latest
+      with_items:
+       - "{{dbserver_pkg}}"
+       - "{{dbclient_pkg}}"
+      notify:
+       - RestartMariaDBService
+       - MysqlSecureInstallatonPause
+       - RestartMariaDBService
+       - CopingDBFile
+       - CreatDBInstance
+       - ImportingDBInstanceDispayResult
+       - VerifyDBStatus
+       - DisplayNewDB
+       - ShowDatabases

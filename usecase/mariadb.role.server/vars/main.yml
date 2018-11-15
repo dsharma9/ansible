@@ -1,0 +1,7 @@
+dbserver_pkg: mariadb-server
+dbclient_pkg: mariadb
+dbserver_fqdn: roelti2.mylabserver.com
+dbinstall_dir: /var/lib
+dbinstancename: MyDBTest
+dbdistributioin: RedHat
+dbvsersion: 5.5.44
